@@ -5,7 +5,7 @@ Feature: Title of your feature
 
   @tag1
   Scenario: Registeration Page
-    Given I want to click on Register
+    Given I want to click on Register - For testing
     When I click on registerlink
     Then I should navigate to Registeration Page
 
