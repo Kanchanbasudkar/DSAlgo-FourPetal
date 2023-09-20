@@ -4,26 +4,23 @@ Feature: Title of your feature
   I want to use this template for my feature file
 
   @tag1
-  Scenario: Title of your scenario
-    Given I want to write a step with precondition
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
-
-  @tag2
-  Scenario Outline: Registeration Form
-    Given User need to Enter Username <sdet130@gmail.com>
-    When User need to Enter Password <Numpy@12345> 
-    And User confirms Password <Numpy@12345> 
-    Then User need to click on Register Button
+  Scenario Outline: Filling Registration form
+    Given User needs cicks on registration form
+    When User needs to enter username,password,confirm password from given <"sheetname"> and <rowno>
+    Then User needs to click on register button with expected message
     
-     
-
-    Examples: 
-      | name  | value |
-      | Username | sdet130@gmail.com |
-      | Password | Numpy@12345 |     
-			|Password confirmation|Numpy@12345|
+    Examples:
+    |sheetname	|	rowno			|
+    |Sheet1			|0					|
+    |Sheet1			|1					|
+    |Sheet1			|2					|
+    |Sheet1			|3					|
+    |Sheet1			|4					|
+    |Sheet1			|5					|
+    |Sheet1			|6					|
+    |Sheet1			|7					|
+    |Sheet1			|8					|
+    |Sheet1			|9					|
+    
+    
+  
