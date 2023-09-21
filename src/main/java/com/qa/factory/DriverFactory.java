@@ -8,7 +8,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.Collections;
 
-public class DriverFactorys {
+public class DriverFactory {
 	public WebDriver driver;
 	
 	public static ThreadLocal<WebDriver> tlDriver= new ThreadLocal<WebDriver>();

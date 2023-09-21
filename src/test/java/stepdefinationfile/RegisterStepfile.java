@@ -1,4 +1,4 @@
-package herokuapp;
+package stepdefinationfile;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
