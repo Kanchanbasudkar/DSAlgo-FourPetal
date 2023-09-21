@@ -1,12 +1,9 @@
 
-@tag
-Feature: Title of your feature
-  I want to use this template for my feature file
 
   @tag1
-  Scenario: HomePage
-   Given User want to click on GetStarted button
-   When User will navigate to Homepage
-   Then User navigate to Registeration Page
+  Scenario: Click on Register link
+   Given User needs to click on Register link
+   When User click register link,it shoud navigate to registerformPage
+   Then User lands on registerformPage
 
   

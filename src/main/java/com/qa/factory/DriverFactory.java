@@ -22,7 +22,10 @@ public class DriverFactory {
         } else if (Browser.equals("safari")) {
             WebDriverManager.safaridriver().setup();
             tlDriver.set(new SafariDriver());
-        } else {
+        } else if (Browser.equals("edge")) {
+            WebDriverManager.edgedriver().setup();
+            tlDriver.set(new SafariDriver());
+        }else {
             System.out.println("Please pass the correct browser value :" + Browser);
         }
         return getDriver();
