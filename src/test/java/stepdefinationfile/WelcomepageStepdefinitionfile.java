@@ -1,6 +1,5 @@
 package stepdefinationfile;
 
-import com.pages.HomePage;
 import com.pages.WelcomePage;
 import com.qa.factory.DriverFactory;
 
@@ -18,10 +17,8 @@ public class WelcomepageStepdefinitionfile {
 	}
 
 	@When("I click the GetStared button")
-	public void  clickGetstartedButton() {
+	public void clickGetstartedButton() {
 		welcomePage.clickGetstartedButton();
-		HomePage homePage = new HomePage(DriverFactory.getDriver());
-		homePage.clickSignInLink();
 	}
 
 	@Then("Navigates to HomePage")
