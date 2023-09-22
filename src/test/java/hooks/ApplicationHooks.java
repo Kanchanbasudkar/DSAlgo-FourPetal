@@ -33,18 +33,18 @@ public class ApplicationHooks {
         webDriver = driverfactory.init_driver(browserName);
     }
 
-    @After(order = 0)
-    public void browserQuit() {
-        webDriver.close();
-    }
-
-    @After(order = 1)
-    public void tearDown(Scenario scenario) {
-        if (scenario.isFailed()) {
-            //take screenshot
-            String screenShotName = scenario.getName().replaceAll(" ", "_");
-            byte[] sourcePath = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(sourcePath, "image/png", screenShotName);
-        }
-    }
+//    @After(order = 0)
+//    public void browserQuit() {
+//        webDriver.close();
+//    }
+//
+//    @After(order = 1)
+//    public void tearDown(Scenario scenario) {
+//        if (scenario.isFailed()) {
+//            //take screenshot
+//            String screenShotName = scenario.getName().replaceAll(" ", "_");
+//            byte[] sourcePath = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(sourcePath, "image/png", screenShotName);
+//        }
+//    }
 }
