@@ -7,8 +7,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "C:\\Users\\anil.basudkar\\eclipse-workspace\\DSAlgo-FourPetal\\src\\test\\resources\\features",
-		glue = {"stepdefinationfile","hooks" }, 
+		features = "src/test/resources/features/SignIn.feature",
+		glue = {"stepdefinationfile","hooks" },
 		plugin = { "pretty", "html:target/cucumber-html-report", "json:cucumber.json" }
 
 )

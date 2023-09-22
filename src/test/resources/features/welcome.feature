@@ -1,6 +1,6 @@
 
 @tag
-Feature: Title of your feature
+Feature: Welcome page
   I want to use this template for my feature file
 
 @tag1

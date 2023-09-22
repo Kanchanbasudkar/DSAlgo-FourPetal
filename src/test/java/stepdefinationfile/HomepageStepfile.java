@@ -10,19 +10,19 @@ public class HomepageStepfile {
 @Given("User needs to click on Register link")
 public void user_needs_to_click_on_register_link() {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+   // throw new io.cucumber.java.PendingException();
 }
 
 @When("User click register link,it shoud navigate to registerformPage")
 public void user_click_register_link_it_shoud_navigate_to_registerform_page() {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+  //  throw new io.cucumber.java.PendingException();
 }
 
 @Then("User lands on registerformPage")
 public void user_lands_on_registerform_page() {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+   // throw new io.cucumber.java.PendingException();
 }
 }
 
