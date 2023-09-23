@@ -25,9 +25,9 @@ public void Username() {
 public void Password() {
 	webDriver.findElement(password).sendKeys("kanbas123$");
 }
-public DsAlgoHomePage ClickLoginBtn() {
+public HomePage ClickLoginBtn() {
 	webDriver.findElement(loginBtn).click();
-	return new DsAlgoHomePage(webDriver);
+	return new HomePage(webDriver);
 
 }
 

@@ -1,16 +1,14 @@
 @tag
 Feature: Graph Home page Funtionality
 
-  @tag1
-  Scenario: Open Graph page
-    Given I am on Ds-algo Home Page 
+Background:
+    Given I am on Ds-algo Home Page 	
     When I click the GetStared button under Graph subtitle
     Then Navigates to Graph Home page
 
 
-  @tag2
+  @tag1
   Scenario: Run print statement in Graph
-    Given I am on Graph Home Page
     When I click the Graph Link
     Then Navigates to Graph Page
     When I click the Try Here>>> button
@@ -20,9 +18,8 @@ Feature: Graph Home page Funtionality
     Then displays "welcome" in output
 
 
-  @tag3
+  @tag2
   Scenario: Run print statement in Graph Representations
-    Given I am on Graph Home Page 
     When I click the Graph Representations Link
     Then Navigates to Graph Representations Try Page
     When I click Try Here button

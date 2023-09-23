@@ -10,7 +10,7 @@ public class GraphPage {
 		By graphGetStared = By.xpath("//h5[contains(text(),'Graph')]/..//a");
 		By graphRepLink = By.linkText("Graph Representations");
 		By tryHereButton = By.linkText("Try here>>>");
-		By write = By.className("//form[@id='answer_form']/div/div/div/textarea");
+		By write = By.xpath("//form[@id='answer_form']/div/div/div/textarea");
 		By run = By.xpath("//button[contains(text(),'Run')]");
 		By graphLink = By.linkText("Graph");
 

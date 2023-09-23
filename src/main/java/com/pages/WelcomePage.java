@@ -13,10 +13,10 @@ public class WelcomePage {
 		this.webDriver = webDriver;
 	}
 
-	public DsAlgoHomePage clickGetstartedButton() {
+	public void clickGetstartedButton() {
 
 		webDriver.findElement(getstared).click();
-		return new DsAlgoHomePage(webDriver);
+		///return new HomePage(webDriver);
 
 	}
 }

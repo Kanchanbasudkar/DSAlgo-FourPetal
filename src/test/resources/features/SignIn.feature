@@ -1,4 +1,3 @@
-
 @tag
 Feature: Sign in
   I want to use this template for my feature file
@@ -12,6 +11,7 @@ Feature: Sign in
     And I enter password "kanbas123$"
     And I click login
     Then It navigates to home page
+    
 
 
  
