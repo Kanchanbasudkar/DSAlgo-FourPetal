@@ -4,14 +4,14 @@ import org.openqa.selenium.WebDriver;
 
 public class DsAlgoHomePage {
 	
-	private WebDriver driver;
+	private WebDriver webDriver;
 
 	//Add all By Locators
 	
 	
-	public DsAlgoHomePage(WebDriver driver) {
+	public DsAlgoHomePage(WebDriver webDriver) {
 		super();
-		this.driver = driver;
+		this.webDriver = webDriver;
 	}
 	
 	//Add all Page Actions
