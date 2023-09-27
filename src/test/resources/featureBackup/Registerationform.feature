@@ -8,7 +8,7 @@ Feature: Title of your feature
     Given User needs cicks on registration form
     When User needs to enter username,password,confirm password from given <"sheetname"> and <rowno>
     Then User needs to click on register button with expected message
-    
+
     Examples:
     |sheetname	|	rowno			|
     |Sheet1			|0					|
