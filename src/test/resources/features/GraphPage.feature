@@ -2,7 +2,7 @@
 Feature: Graph Home page Funtionality
 
 Background:
-    Given I am on Ds-algo Home Page 	
+    Given I am on Ds-algo Home Page
     When I click the GetStared button under Graph subtitle
     Then Navigates to Graph Home page
 
@@ -27,4 +27,4 @@ Background:
     When Enter "print 'Welcome'" in text area
     And I click Run
     Then displays "Welcome" in the output
-    
+

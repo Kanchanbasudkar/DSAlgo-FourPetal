@@ -1,6 +1,6 @@
 package stepdefinationfile;
 
-import com.pages.SignIn;
+import com.pages.SignInPage;
 import com.pages.TreePage;
 import com.qa.factory.DriverFactory;
 
@@ -8,20 +8,22 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 public class TreePageStepfile {
 
 	TreePage treePage = new TreePage(DriverFactory.getDriver());
 
-	SignIn signIn = new SignIn(DriverFactory.getDriver());
+	SignInPage signIn = new SignInPage(DriverFactory.getDriver());
 
 
 	@Given("I am on Home Page after signing in")
-	public void i_am_on_home_page_after_signing_in() {
+	public void i_am_on_home_page_after_signing_in() throws IOException {
 		DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
-		signIn.ClickSignIn();
-		signIn.Username();
-		signIn.Password();
-		signIn.ClickLoginBtn();
+		signIn.clickSignIn();
+		signIn.sendUsername();
+		signIn.sendPassword();
+		signIn.clickLoginBtn();
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new io.cucumber.java.PendingException();
 	}
