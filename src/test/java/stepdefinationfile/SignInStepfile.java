@@ -1,75 +1,55 @@
 package stepdefinationfile;
 
-import com.pages.SignIn;
+import com.pages.SignInPage;
 import com.qa.factory.DriverFactory;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 public class SignInStepfile {
 
-	SignIn signIn = new SignIn(DriverFactory.getDriver());
+	SignInPage signIn = new SignInPage(DriverFactory.getDriver());
 
-	@Given("I am at home page")
-	public void i_am_at_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
+	@Given("User is on home page")
+	public void user_is_on_home_page() {
 		DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
 	}
 
-	@When("I click sign in")
-	public void i_click_sign_in() {
-	    // Write code here that turns the phrase above into concrete actions
-		signIn.ClickSignIn();
-	    //throw new io.cucumber.java.PendingException();
+	@When("User clicked on SignIn button")
+	public void user_clicked_on_sign_in_button() {
+		signIn.clickSignIn();
+	}
+	@And("User enters sheetname {string} and rownumber {int}")
+	public void user_enters_sheetname_and_rownumber(String sheetName, Integer rowNumber) throws IOException {
+		signIn.readDataFromSheet(sheetName, rowNumber);
+	}
+
+	@Then("Enter username {string} and password {string} to sign in")
+	public void enter_username_and_password_to_sign_in(String userName, String password) throws IOException {
+		signIn.sendUsername();
+		signIn.sendPassword();
 	}
 
 	@Then("It navigates to login page")
 	public void it_navigates_to_login_page() {
-	    // Write code here that turns the phrase above into concrete actions
 		System.out.println("Welcome to Login page");
-      //throw new io.cucumber.java.PendingException();
 	}
-
-	//@Then("I enter Username")
-	//public void i_enter_username() {
-	    // Write code here that turns the phrase above into concrete actions
-		//signIn.Username();
-	    //throw new io.cucumber.java.PendingException();
-	//}
-	@Then("I enter Username {string}")
-	public void i_enter_username(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-		signIn.Username();
-	   // throw new io.cucumber.java.PendingException();
+	@Then("User clicked on login button")
+	public void user_clicked_on_login_button() {
+		signIn.clickLoginBtn();
 	}
-
-
-	//@Then("I enter password")
-	//public void i_enter_password() {
-	    // Write code here that turns the phrase above into concrete actions
-		//signIn.Password();
-	    //throw new io.cucumber.java.PendingException();
-	//}
-	@Then("I enter password {string}")
-	public void i_enter_password(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-		signIn.Password();
-	   // throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("I click login")
-	public void i_click_login() {
-	    // Write code here that turns the phrase above into concrete actions
-		signIn.ClickLoginBtn();
-	    //throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("It navigates to home page")
-	public void it_navigates_to_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
+	@Then("User navigates to home page")
+	public void user_navigates_to_home_page() {
 		System.out.println("Welcome to homepage");
-	   // throw new io.cucumber.java.PendingException();
 	}
+
+
+
+
+
 
 }
