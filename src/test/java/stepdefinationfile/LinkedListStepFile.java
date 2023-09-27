@@ -1,4 +1,4 @@
-package stepdefinationfile;
+	package stepdefinationfile;
 
 import com.pages.LinkedListPage;
 import com.qa.factory.DriverFactory;
@@ -13,8 +13,8 @@ public class LinkedListStepFile {
 	private LinkedListPage linkedListpage = new LinkedListPage(DriverFactory.getDriver());
 	
 	
-    @Given("The user is in the Home page")
-    public void  the_user_is_in_the_Home_page()   {
+    @Given("The user is in Home page")
+    public void the_user_is_in_home_page()   {
     	System.out.println("I am on home page");
     }
 
@@ -89,12 +89,12 @@ public class LinkedListStepFile {
 
 	}
 	
-	@When("The user enters valid python code in tryEditor\"print {string}\"")
-	public void the_user_enters_valid_python_code_in_try_editor_print1(String string) {
-		linkedListpage.enterValidPythonCode(string);
-	}
+	//@When("The user enters valid python code in tryEditor\"print {string}\"")
+	//public void the_user_enters_valid_python_code_in_try_editor_print1(String string) {
+	//	linkedListpage.enterValidPythonCode(string);
+	//}
 
-	@Then("The user enters valid python code in tryEditor\"print {string}\"")
+	@And("The user enters valid python code in tryEditor\"print {string}\"")
 	public void the_user_enters_valid_python_code_in_try_editor_print(String string) {
 		linkedListpage.enterValidPythonCode(string);
 	}
