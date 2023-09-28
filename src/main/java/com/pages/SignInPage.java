@@ -29,7 +29,7 @@ public class SignInPage {
     }
 
     public void sendUsername() throws IOException {
-        webDriver.findElement(password).sendKeys(userNameExcelValue);
+        webDriver.findElement(userName).sendKeys(userNameExcelValue);
     }
 
     public void readDataFromSheet(String sheetName, Integer rowNumber) throws IOException {
