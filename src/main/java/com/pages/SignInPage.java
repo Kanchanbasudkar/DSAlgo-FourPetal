@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.qa.util.ConfigReader;
 import com.qa.util.ExcelReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,9 +8,13 @@ import org.openqa.selenium.WebDriver;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class SignInPage {
     private WebDriver webDriver;
+
+    private ConfigReader configReader;
+    private Properties prop;
 
     By signIn = By.partialLinkText("Sign");
 
@@ -22,6 +27,8 @@ public class SignInPage {
     public SignInPage(WebDriver webDriver) {
         super();
         this.webDriver = webDriver;
+        this.configReader = new ConfigReader();
+        this.prop = configReader.init_prop();
     }
 
     public void clickSignIn() {
@@ -34,7 +41,7 @@ public class SignInPage {
 
     public void readDataFromSheet(String sheetName, Integer rowNumber) throws IOException {
         ExcelReader reader = new ExcelReader();
-        List<Map<String, String>> testdata = reader.getData("C:\\Users\\anil.basudkar\\eclipse-workspace\\DSAlgo-FourPetal\\src\\test\\resources\\exceldata\\signInTestData.xlsx", sheetName);
+        List<Map<String, String>> testdata = reader.getData(prop.getProperty("dataFilePath"), sheetName);
         userNameExcelValue = testdata.get(rowNumber).get("userName");
         passwordExcelValue = testdata.get(rowNumber).get("password");
     }
