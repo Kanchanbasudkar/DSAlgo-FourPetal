@@ -1,27 +1,28 @@
 pipeline {
-    agent any
-    triggers {
-        pollSCM '*/5 * * * *'
+  agent any
+  triggers {
+    pollSCM '*/5 * * * *'
+  }
+  tools {
+    maven "Maven 3.9.4"
+  }
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building..'
+        sh 'mvn clean install'
+        echo 'Build step completed'
+      }
     }
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                withMaven(maven: 'maven_3_9_4') {
-                          sh 'mvn clean install'
-                        }
-                echo 'Build step completed'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+    stage('Test') {
+      steps {
+        echo 'Testing..'
+      }
     }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
+      }
+    }
+  }
 }
