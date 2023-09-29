@@ -21,6 +21,13 @@ pipeline {
         echo 'End Testing..'
       }
     }
+    stage('Cucumber Reports') {
+      steps {
+        cucumber buildStatus: "UNSTABLE",
+        fileIncludePattern: "**/cucumber.json",
+        jsonReportDirectory: 'target'
+      }
+    }
     stage('Deploy') {
       steps {
         echo 'Deploying....'
