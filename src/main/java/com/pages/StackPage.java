@@ -43,7 +43,7 @@ public class StackPage {
 	 }
 	 
 	 public void enterText()  {
-		 driver.findElement(textboxelem).sendKeys("print 'Hello'");
+		 driver.findElement(textboxelem).sendKeys("print 'Welcome'");
 	 }
 	 
 	 public void clickRunBtn()   {

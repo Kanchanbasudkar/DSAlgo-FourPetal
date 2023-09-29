@@ -1,5 +1,6 @@
 package stepdefinationfile;
 
+import com.pages.SignInPage;
 import com.pages.StackPage;
 import com.qa.factory.DriverFactory;
 
@@ -8,15 +9,38 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 public class StackStepFile {
 	
 	
 	
 	private StackPage stackpage = new StackPage(DriverFactory.getDriver());
+
+	SignInPage signIn = new SignInPage(DriverFactory.getDriver());
+
+	@Given("User is on home page for StackPage")
+	public void user_is_on_home_page_for_stack_page() {
+		DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
+		signIn.clickSignIn();
+	}
+
+	@And("User enters sheetname {string} and rownumber {int} for StackPage")
+	public void user_enters_sheetname_and_rownumber_for_stack_page(String sheetName, Integer rowNumber) throws IOException {
+		signIn.readDataFromSheet(sheetName, rowNumber);
+	}
+
+	@Then("Enter username {string} and password {string} to sign in for StackPage")
+	public void enter_username_and_password_to_sign_in_for_stack_page(String string, String string2) throws IOException {
+		System.out.println("inside enter username and password");
+		signIn.sendUsername();
+		signIn.sendPassword();
+		signIn.clickLoginBtn();
+	}
 	
 	@Given("The user is in the Home page")
 	public void the_user_is_in_the_home_page() {
-		DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home");
+		System.out.println("I am on home page");
 	   
 	}
 
@@ -97,9 +121,6 @@ public class StackStepFile {
 		stackpage.clickRunBtn();
 	
 	}
-	
-	
-
 	@When("The user clicks the Applications link")
 	public void the_user_clicks_the_applications_link() {
 		stackpage.clickApplicationsLink();
