@@ -17,6 +17,8 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
+        sh 'mvn test'
+        echo 'End Testing..'
       }
     }
     stage('Deploy') {
