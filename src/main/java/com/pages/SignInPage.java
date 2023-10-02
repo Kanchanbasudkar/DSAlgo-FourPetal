@@ -29,12 +29,12 @@ public class SignInPage {
     }
 
     public void sendUsername() throws IOException {
-        webDriver.findElement(password).sendKeys(userNameExcelValue);
+        webDriver.findElement(userName).sendKeys(userNameExcelValue);
     }
 
     public void readDataFromSheet(String sheetName, Integer rowNumber) throws IOException {
         ExcelReader reader = new ExcelReader();
-        List<Map<String, String>> testdata = reader.getData("C:\\Users\\anil.basudkar\\eclipse-workspace\\DSAlgo-FourPetal\\src\\test\\resources\\exceldata\\signInTestData.xlsx", sheetName);
+        List<Map<String, String>> testdata = reader.getData("./src/test/resources/exceldata/signInTestData.xlsx", sheetName);
         userNameExcelValue = testdata.get(rowNumber).get("userName");
         passwordExcelValue = testdata.get(rowNumber).get("password");
     }
