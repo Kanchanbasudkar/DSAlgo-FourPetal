@@ -1,18 +1,24 @@
 pipeline {
   agent any
+  triggers {
+    pollSCM '*/5 * * * *'
+  }
+  tools {
+    maven "Maven 3.9.4"
+  }
   stages {
-    stage('Compile Stage') {
+    stage('Build') {
       steps {
-        withMaven(maven: 'maven_3_23_0') {
-          sh 'mvn clean install'
-        }
+        echo 'Building..'
+        sh 'mvn clean'
+        echo 'Build step completed'
       }
     }
-    stage('Test Stage') {
+    stage('Test') {
       steps {
-        withMaven(maven: 'maven_3_23_0') {
-          sh 'mvn test'
-        }
+        echo 'Testing..'
+        sh 'mvn test'
+        echo 'End Testing..'
       }
     }
     stage('Cucumber Reports') {
@@ -20,6 +26,11 @@ pipeline {
         cucumber buildStatus: "UNSTABLE",
         fileIncludePattern: "**/cucumber.json",
         jsonReportDirectory: 'target'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
       }
     }
   }
