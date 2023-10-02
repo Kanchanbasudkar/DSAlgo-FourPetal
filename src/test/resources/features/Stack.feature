@@ -7,7 +7,7 @@ Feature: Stack Page Functionality
     And User enters sheetname "<sheetName>" and rownumber <rowNumber> for StackPage
     Then Enter username "<userName>" and password "<password>" to sign in for StackPage
     Given The user is in the Home page
-    When The user clicks on  get started button
+    When The user clicks on get started button
     Then The user will be directed to Stack Page
     Examples:
       | sheetName | rowNumber |

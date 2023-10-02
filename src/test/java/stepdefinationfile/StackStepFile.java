@@ -44,7 +44,7 @@ public class StackStepFile {
 	   
 	}
 
-	@When("The user clicks on  get started button")
+	@When("The user clicks on get started button")
 	public void the_user_clicks_on_get_started_button() {
 		stackpage.selectStack();
 	
