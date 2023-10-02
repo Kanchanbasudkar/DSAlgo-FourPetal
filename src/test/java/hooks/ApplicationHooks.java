@@ -38,7 +38,13 @@ public class ApplicationHooks {
         webDriver.get("https://dsportalapp.herokuapp.com/tree/overview-of-trees/");
     }
 
-   // @After(order = 1)
+    @Before("@GraphPage")
+    public void navigateToGraphPageHome() {
+        webDriver.get("https://dsportalapp.herokuapp.com/graph/graph-representations/");
+    }
+
+
+    // @After(order = 1)
    // public void tearDown(Scenario scenario) {
     //    if (scenario.isFailed()) {
             //take screenshot
