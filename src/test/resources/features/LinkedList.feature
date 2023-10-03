@@ -3,7 +3,7 @@ Feature: LinkedList
 
   @tag1
   Scenario: Navigate to LinkedList Page
-    Given The user is in the Home page
+    Given The user is in Home page
     When the user clicks on get started button
     Then The user should be directed to Linked List Page
 

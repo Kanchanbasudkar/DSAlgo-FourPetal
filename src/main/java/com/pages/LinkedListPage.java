@@ -3,8 +3,6 @@ package com.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import org.openqa.selenium.WebDriver;
-
 public class LinkedListPage {
 	
 	
@@ -54,8 +52,8 @@ public class LinkedListPage {
 			driver.findElement(codeMirror).sendKeys(pythonCode);
 		}
 
-		public String codeOutput() {
-			return driver.findElement(output).getText();
+		public void codeOutput() {
+			driver.findElement(output).getText();
 		}
 
 		public void clickRunButton() {

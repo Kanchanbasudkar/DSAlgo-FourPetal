@@ -12,7 +12,7 @@ public class StackPage {
 	 //By locators : Object Repository
 	
 	private By  Stackele = By.xpath("//a[@href='stack']");
-	private By OperInStackLink = By.linkText("Operations in Stack");
+	private By OperInStackLink = By.xpath("//a[normalize-space()='Operations in Stack']");
 	private By ImplementEle = By.linkText("Implementation");
 	private  By AppliElem = By.linkText("Applications");
 	private By PracQuesEle = By.linkText("Practice Questions");
