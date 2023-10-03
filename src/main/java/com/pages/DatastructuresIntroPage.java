@@ -43,5 +43,9 @@ public class DatastructuresIntroPage {
 	public void invalidtext() {
 		webDriver.findElement(write).sendKeys("'welcome'");
 }
-		
+		public void Displayoutput()
+		{
+			String display = webDriver.findElement(output).getText();
+			System.out.println(display);
+		}
 }

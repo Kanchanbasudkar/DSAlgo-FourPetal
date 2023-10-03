@@ -32,7 +32,10 @@ public class ApplicationHooks {
     public void browserQuit() {
        webDriver.close();
    }
-
+    @Before("@Arrays")
+    public void navigateToArrayPageHome() {
+        webDriver.get("https://dsportalapp.herokuapp.com/array/arrays-in-python/");
+    }
     @Before("@TreePage")
     public void navigateToTreePageHome() {
         webDriver.get("https://dsportalapp.herokuapp.com/tree/overview-of-trees/");

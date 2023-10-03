@@ -1,119 +1,74 @@
-//package stepdefinationfile;
-//
-//import com.pages.DatastructuresIntroPage;
-//import com.pages.SignIn;
-//import com.qa.factory.DriverFactory;
-//
-//import io.cucumber.java.en.And;
-//import io.cucumber.java.en.Given;
-//import io.cucumber.java.en.Then;
-//import io.cucumber.java.en.When;
-//
-//public class DataStructureIntroStepfile {
-//
-//DatastructuresIntroPage dataIntro = new DatastructuresIntroPage(DriverFactory.getDriver());
-//SignIn signIn = new SignIn(DriverFactory.getDriver());
-//
-//
-//@Given("I am on Ds-algo Home Page")
-//public void i_am_on_ds_algo_home_page() {
-//    // Write code here that turns the phrase above into concrete actions
-//    //throw new io.cucumber.java.PendingException();
-//	DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
-//	signIn.ClickSignIn();
-//	signIn.Username();
-//	signIn.Password();
-//	signIn.ClickLoginBtn();
-//
-//}
-//
-//@When("I click the GetStared button under Data Structures-Introduction subtitle")
-//public void i_click_the_get_stared_button_under_graph_subtitle() {
-//    //throw new io.cucumber.java.PendingException();
-//	dataIntro.ClickData_structureGetstarted();
-//}
-//
-//@Then("Navigates to Data Structures-Introduction Home page")
-//public void navigates_to_data_structures_introduction_home_page() {
-//    // Write code here that turns the phrase above into concrete actions
-//   // throw new io.cucumber.java.PendingException();
-//	System.out.println("Data Structures-Introduction Home page");
-//}
-//
-//@When("I click on the Data Structures-Introduction link")
-//public void i_click_on_the_data_structures_introduction_link() {
-//    // Write code here that turns the phrase above into concrete actions
-//   // throw new io.cucumber.java.PendingException();
-//	dataIntro.Clicktime_complex();
-//}
-//
-//@Then("Navigates to Data Structures-Introduction page")
-//public void navigates_to_data_structures_introduction_page() {
-//    // Write code here that turns the phrase above into concrete actions
-//    //throw new io.cucumber.java.PendingException();
-//	System.out.println("Data Structures-Introduction page");
-//}
-//
-//@When("I click the Try Here>>> button")
-//public void i_click_the_try_here_button() {
-//    // Write code here that turns the phrase above into concrete actions
-//    //throw new io.cucumber.java.PendingException();
-//	dataIntro.Clicktry();
-//}
-//
-//@Then("Navigates to TryEditor Page")
-//public void navigates_to_try_editor_page() {
-//    // Write code here that turns the phrase above into concrete actions
-//    //throw new io.cucumber.java.PendingException();
-//	System.out.println("need to enter welcome");
-//}
-//
-//@When("I Enter {string} in text area")
-//public void i_enter_in_text_area(String string) throws InterruptedException {
-//    // Write code here that turns the phrase above into concrete actions
-//   // throw new io.cucumber.java.PendingException();
-//	Thread.sleep(5000);
-//	dataIntro.Clickwrite();
-//}
-//
-//@And("click Run")
-//public void click_run() {
-//    // Write code here that turns the phrase above into concrete actions
-//   // throw new io.cucumber.java.PendingException();
-//	dataIntro.Clickrunbutton();
-//}
-//
-//
-//@Then("displays {string} in output")
-//public void displays_in_output(String string) {
-//    // Write code here that turns the phrase above into concrete actions
-//   // throw new io.cucumber.java.PendingException();
-//	System.out.println("welcome printed");
-//}
-//
-//@When("I click the Time Complexity link")
-//public void i_click_the_time_complexity_link() {
-//	dataIntro.Clicktry();
-//}
-//
-//@Then("I click on Typehere button on Time Complexity Page")
-//public void i_click_on_typehere_button_on_time_complexity_page() {
-//	System.out.println("now at time Time Complexity");
-//}
-//
-//@When("I Enter invalid python Code in text area")
-//public void i_enter_invalid_python_code_in_text_area() {
-//		dataIntro.invalidtext();
-//		dataIntro.Clickrunbutton();
-//
-//}
-//
-//@Then("Display Alert message")
-//public void display_alert_message() {
-//	System.out.println("alert");
-//   }
-//
-//
-//
-//
-//}
+package stepdefinationfile;
+
+import com.pages.DatastructuresIntroPage;
+import com.pages.SignInPage;
+import com.qa.factory.DriverFactory;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+import java.io.IOException;
+
+public class DataStructureIntroStepfile {
+
+	DatastructuresIntroPage dataIntro = new DatastructuresIntroPage(DriverFactory.getDriver());
+	SignInPage signIn = new SignInPage(DriverFactory.getDriver());
+
+	@Given("User on homepage of Dsalo and clickon Get started")
+	public void userOnHomepageOfDsaloAndClickonGetStarted() {
+		DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
+		signIn.clickSignIn();
+	}
+	@Given("User enters sheetname {string} and rownumber {int} for Data")
+	public void user_enters_sheetname_and_rownumber_for_data(String sheetName, Integer rowNumber) throws IOException {
+		signIn.readDataFromSheet(sheetName, rowNumber);
+	}
+	@Then("Enter username {string} and password {string} to signin for Data")
+	public void enter_username_and_password_to_signin_for_data(String string, String string2) throws IOException {
+		System.out.println("inside enter username and password");
+		signIn.sendUsername();
+		signIn.sendPassword();
+		signIn.clickLoginBtn();
+	}
+	@When("User click the GetStared button under Data subtitle")
+	public void user_click_the_get_stared_button_under_data_subtitle() {
+		dataIntro.ClickData_structureGetstarted();
+	}
+	@Then("User Navigates to Data Structures-Introduction")
+	public void user_navigates_to_data_structures_introduction() {
+		System.out.println("Data Structures-Introduction");
+
+	}
+	@When("User click on Time Complexity link")
+	public void user_click_on_time_complexity_link() {
+		dataIntro.Clicktime_complex();
+	}
+	@Then("Navigates to Time Complexity link")
+	public void navigates_to_time_complexity_link() {
+		System.out.println("Time Complexity link");
+	}
+	@When("User click on Try HereButton")
+	public void user_click_on_try_here_button() {
+		dataIntro.Clicktry();
+	}
+	@Then("User navigates to TryEditorPage")
+	public void user_navigates_to_try_editor_page() {
+		System.out.println("Try EditorPage");
+	}
+	@When("User Enter vaild message in textbox")
+	public void user_enter_vaild_statement_in_textbox() {
+		dataIntro.Clickwrite();
+	}
+
+	@And("User press on RunButton")
+	public void userPressOnRunButton() {
+		dataIntro.Clickrunbutton();
+	}
+
+	@Then("Display output")
+	public void displayOutput() {
+		dataIntro.Displayoutput();
+	}
+}
