@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/features/TreePage.feature",
+		features = "src/test/resources/features/DatastructureIntro.feature",
 		glue = {"stepdefinationfile","hooks" },
 		plugin = { "pretty", "html:target/cucumber-html-report", "json:cucumber.json" }
 //		plugin = { "json:cucumber.json" }
