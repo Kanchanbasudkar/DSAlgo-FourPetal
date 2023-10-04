@@ -2,7 +2,7 @@
 Feature: Stack Page Functionality
 
   @StackPage
-  Scenario Outline: Run print statement
+  Scenario Outline: Run print statement on Stack Page
     Given User is on home page for StackPage
     And User enters sheetname "<sheetName>" and rownumber <rowNumber> for StackPage
     Then Enter username "<userName>" and password "<password>" to sign in for StackPage
@@ -17,7 +17,7 @@ Feature: Stack Page Functionality
   Scenario: Run print statement on Operations in Stack link
     Given The user clicks on Operations in Stack link
     When The user clicks Try Here button in the Operations in stack page
-    When The user enters valid python code in TryEditor "print'Welcome'"
+    And The user enters text in tryEditor "print'Welcome'"
     And user clicks on run button
     Then The user will be presented with the Run output
 

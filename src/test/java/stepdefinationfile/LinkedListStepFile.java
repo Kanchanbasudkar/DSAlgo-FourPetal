@@ -93,18 +93,17 @@ import java.io.IOException;
 		System.out.println("I am on tryeditor page");
 	}
 
-		@Given("User enters sheetname {string} and rownumber {int} for LinkedList Page")
-		public void user_enters_sheetname_and_rownumber_for_linked_list_page(String string, Integer int1) throws IOException {
-			System.out.println("inside enter username and password");
-			signIn.sendUsername();
-			signIn.sendPassword();
-			signIn.clickLoginBtn();
+		@And("User enters sheetname {string} and rownumber {int} for LinkedList Page")
+		public void user_enters_sheetname_and_rownumber_for_linked_list_page(String sheetName, Integer rowNumber) throws IOException {
+		signIn.readDataFromSheet(sheetName, rowNumber);
 		}
+
+
 
 
 		@And("The user enters valid python code in tryEditor {string}")
 	public void The_user_enters_valid_python_code_in_tryEditor(String pythonCode) {
-		linkedListpage.enterValidPythonCode(pythonCode);
+		linkedListpage.codeMirrorText();
 	}
 
 	@Given("The user is in Linked List page")
@@ -123,9 +122,11 @@ import java.io.IOException;
 		linkedListpage.tryHereLink();
 
 	}
-	@And("The user enters valid python code in tryEditor\"print {string}\"")
-	public void the_user_enters_valid_python_code_in_try_editor_print(String string) {
-		linkedListpage.enterValidPythonCode(string);
+
+	@And("The user enters valid python code in tryEditor")
+	public void the_user_enters_valid_python_code_in_try_editor() throws InterruptedException {
+			Thread.sleep(5000);
+		linkedListpage.codeMirrorText();
 	}
 
 	@When("The user clicks Implement Linked list link")

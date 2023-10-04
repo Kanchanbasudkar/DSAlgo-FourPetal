@@ -38,13 +38,21 @@ public class ApplicationHooks {
         webDriver.get("https://dsportalapp.herokuapp.com/tree/overview-of-trees/");
     }
 
-
-    @Before("@LinkedListPage")
-    public void navigateToLinkedListHome(){webDriver.get("https://dsportalapp.herokuapp.com/linked-list/introduction/");}
+    @Before("@GraphPage")
+    public void navigateToGraphPageHome() {
+        webDriver.get("https://dsportalapp.herokuapp.com/graph/graph-representations/");
+    }
+    @Before ("@LinkedListPage")
+    public void navigateToLinkedListPage()  {
+        webDriver.get("https://dsportalapp.herokuapp.com/linked-list/introduction/");
+    }
 
     @Before("@StackPage")
-    public void navigateToStackPage() {webDriver.get("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");}
-   // @After(order = 1)
+    public void navigateToStackPage()   {
+        webDriver.get("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");
+    }
+
+    // @After(order = 1)
    // public void tearDown(Scenario scenario) {
     //    if (scenario.isFailed()) {
             //take screenshot

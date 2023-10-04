@@ -13,7 +13,7 @@ public class LinkedListPage {
 	 private By getStartedBtn = By.xpath(" //a[@href='linked-list']");
 	 private By Introduction = By.xpath("//a[normalize-space()='Introduction']");
 	 private By tryHerebtn = By.xpath(" //a[normalize-space()='Try here>>>']");
-	 private By codeMirror = By.cssSelector("pre[role='presentation']");
+	 private By codeMirror = By.xpath("//form[@id='answer_form']/div/div/div/textarea");
 	 private By runBtn =By.xpath("//button[@type='button']");
 	 private By output = By.xpath("//pre[@id='output']");
 	 private By CreateLinkedList = By.linkText("Creating Linked LIst");
@@ -27,6 +27,7 @@ public class LinkedListPage {
 	 //Constructor of the page class
 	 
 	 public LinkedListPage(WebDriver driver) {
+		 super();
 		 this.driver = driver;
 	 }
 	 
@@ -46,11 +47,12 @@ public class LinkedListPage {
 
 		public void codeMirrorText() {
 			driver.findElement(codeMirror).sendKeys("print 'Welcome'");
+			System.out.println(codeMirror);
 		}
 
-		public void enterValidPythonCode(String pythonCode) {
-			driver.findElement(codeMirror).sendKeys(pythonCode);
-		}
+		//public void enterValidPythonCode(String pythonCode) {
+			//driver.findElement(codeMirror).sendKeys(pythonCode);
+		//}
 
 		public void codeOutput() {
 			driver.findElement(output).getText();
