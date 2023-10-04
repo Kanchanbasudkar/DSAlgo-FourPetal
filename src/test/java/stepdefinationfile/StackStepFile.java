@@ -8,10 +8,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
 public class StackStepFile {
+
+
 	
 	
 	
@@ -67,13 +72,6 @@ public class StackStepFile {
 		stackpage.clickTryBtn();
 	    
 	}
-
-	@When("The user enters valid python code in TryEditor {string}")
-	public void the_user_enters_valid_python_code_in_try_editor(String string) {
-		stackpage.enterText();
-
-	}
-
 	@When("user clicks on run button")
 	public void user_clicks_on_run_button() {
 		stackpage.clickRunBtn();
@@ -81,10 +79,10 @@ public class StackStepFile {
 	}
 
 	@Then("The user will be presented with the Run output")
-	public void the_user_will_be_presented_with_the_run_output() {
+	public void the_user_will_be_presented_with_the_run_output() throws InterruptedException {
 		stackpage.checkOutput();
-	   
 	}
+
 
 	@Given("The user is on Stack page")
 	public void the_user_is_on_stack_page() {
@@ -111,7 +109,7 @@ public class StackStepFile {
 	
 	}
 
-	@Then("The user enters text in tryEditor {string}")
+	@And("The user enters text in tryEditor {string}")
 	public void the_user_enters_text_in_try_editor(String string) {
 		stackpage.enterText();
 	}
@@ -135,7 +133,7 @@ public class StackStepFile {
 
 	@Then("The user will be redirected to tryEditor page with a Run button to test")
 	public void the_user_will_be_redirected_to_try_editor_page_with_a_run_button_to_test() {
-		stackpage.enterText();
+		System.out.println("I am on TryEditor page");
 	   
 	}
 

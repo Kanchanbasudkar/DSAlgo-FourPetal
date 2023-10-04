@@ -1,5 +1,6 @@
 package com.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,7 +12,7 @@ public class StackPage {
 	
 	 //By locators : Object Repository
 	
-	private By  Stackele = By.cssSelector("a[href='stack']");
+	private By  Stackele = By.xpath("(//a[@href='stack'])[1]");
 	private By OperInStackLink = By.xpath("//a[normalize-space()='Operations in Stack']");
 	private By ImplementEle = By.linkText("Implementation");
 	private  By AppliElem = By.linkText("Applications");
@@ -25,14 +26,14 @@ public class StackPage {
 	 //Constructor of the page class
 	 
 	 public StackPage(WebDriver driver) {
+		 super();
 		 this.driver = driver;
 	 }
 	 
 	  //  Page Actions
+
 	 
-	 public void selectStack()  {
-		 driver.findElement(Stackele).click();
-	 }
+	 public void selectStack()  {driver.findElement(Stackele).click();}
 	 
 	 public void clickOperationsLink()  {
 		 driver.findElement(OperInStackLink).click();
@@ -43,17 +44,20 @@ public class StackPage {
 	 }
 	 
 	 public void enterText()  {
-		 driver.findElement(textboxelem).sendKeys("print 'Welcome'");
+
+		 driver.findElement(textboxelem).sendKeys("print'Welcome'");
+
 	 }
 	 
 	 public void clickRunBtn()   {
 		 driver.findElement(RunBtn).click();
 	 }
 	 
-	 public void checkOutput()   {
+	 public void checkOutput() throws InterruptedException {
+		 Thread.sleep(5000);
 		 driver.findElement(OutputElem);
 	 }
-	 
+
 	 public void clickImplementationLink()   {
 		 driver.findElement(ImplementEle).click();
 	 }
