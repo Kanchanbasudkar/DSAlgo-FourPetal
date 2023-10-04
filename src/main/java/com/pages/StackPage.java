@@ -11,7 +11,7 @@ public class StackPage {
 	
 	 //By locators : Object Repository
 	
-	private By  Stackele = By.xpath("//a[@href='stack']");
+	private By  Stackele = By.cssSelector("a[href='stack']");
 	private By OperInStackLink = By.xpath("//a[normalize-space()='Operations in Stack']");
 	private By ImplementEle = By.linkText("Implementation");
 	private  By AppliElem = By.linkText("Applications");
@@ -20,7 +20,7 @@ public class StackPage {
 	private By textboxelem = By.xpath("//form[@id='answer_form']/div/div/div/textarea");
 	private By RunBtn = By.xpath("//button[text()='Run']");
 	private By OutputElem = By.id("output");
-	private By codeMirror = By.xpath("//form[@id='answer_form']/div/div/div/textarea");
+	//private By codeMirror = By.xpath("//form[@id='answer_form']/div/div/div/textarea");
 	
 	 //Constructor of the page class
 	 
@@ -43,7 +43,7 @@ public class StackPage {
 	 }
 	 
 	 public void enterText()  {
-		 driver.findElement(textboxelem).sendKeys("print 'Hello'");
+		 driver.findElement(textboxelem).sendKeys("print 'Welcome'");
 	 }
 	 
 	 public void clickRunBtn()   {

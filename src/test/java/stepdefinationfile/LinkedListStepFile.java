@@ -1,6 +1,7 @@
 	package stepdefinationfile;
 
 import com.pages.LinkedListPage;
+import com.pages.SignInPage;
 import com.qa.factory.DriverFactory;
 
 import io.cucumber.java.en.And;
@@ -8,11 +9,33 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LinkedListStepFile {
+import java.io.IOException;
 
-	private LinkedListPage linkedListpage = new LinkedListPage(DriverFactory.getDriver());
-	
-	
+	public class LinkedListStepFile {
+
+	 LinkedListPage linkedListpage = new LinkedListPage(DriverFactory.getDriver());
+
+	SignInPage signIn = new SignInPage(DriverFactory.getDriver());
+
+
+		@Given("User is on home page for LinkedListPage")
+		public void user_is_on_home_page_for_linked_list_page() {
+			DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
+			signIn.clickSignIn();
+		}
+
+		@And("User enters sheetname {string} and rownumber {int} for LinkedListPage")
+		public void user_enters_sheetname_and_rownumber_for_linked_List_page(String sheetName, Integer rowNumber) throws IOException {
+			signIn.readDataFromSheet(sheetName, rowNumber);
+		}
+
+		@Then("Enter username {string} and password {string} to sign in for LinkedListPage")
+		public void enter_username_and_password_to_sign_in_for_linked_list_page(String string, String string2) throws IOException {
+			System.out.println("inside enter username and password");
+			signIn.sendUsername();
+			signIn.sendPassword();
+			signIn.clickLoginBtn();
+		}
     @Given("The user is in Home page")
     public void the_user_is_in_home_page()   {
     	System.out.println("I am on home page");
@@ -40,8 +63,11 @@ public class LinkedListStepFile {
 		linkedListpage.tryHereLink();
 	}
 
+
+
 	@And("user clicks on Run button")
-	public void user_clicks_on_Run_button() {
+	public void user_clicks_on_Run_button()
+	{System.out.println("I click Run button");
 		linkedListpage.clickRunButton();
 	}
 
@@ -67,7 +93,16 @@ public class LinkedListStepFile {
 		System.out.println("I am on tryeditor page");
 	}
 
-	@And("The user enters valid python code in tryEditor {string}")
+		@Given("User enters sheetname {string} and rownumber {int} for LinkedList Page")
+		public void user_enters_sheetname_and_rownumber_for_linked_list_page(String string, Integer int1) throws IOException {
+			System.out.println("inside enter username and password");
+			signIn.sendUsername();
+			signIn.sendPassword();
+			signIn.clickLoginBtn();
+		}
+
+
+		@And("The user enters valid python code in tryEditor {string}")
 	public void The_user_enters_valid_python_code_in_tryEditor(String pythonCode) {
 		linkedListpage.enterValidPythonCode(pythonCode);
 	}
@@ -88,12 +123,6 @@ public class LinkedListStepFile {
 		linkedListpage.tryHereLink();
 
 	}
-	
-	//@When("The user enters valid python code in tryEditor\"print {string}\"")
-	//public void the_user_enters_valid_python_code_in_try_editor_print1(String string) {
-	//	linkedListpage.enterValidPythonCode(string);
-	//}
-
 	@And("The user enters valid python code in tryEditor\"print {string}\"")
 	public void the_user_enters_valid_python_code_in_try_editor_print(String string) {
 		linkedListpage.enterValidPythonCode(string);
