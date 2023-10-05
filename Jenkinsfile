@@ -19,7 +19,7 @@ pipeline {
         echo 'Testing..'
         sh 'mvn test'
         echo 'End Testing..'
-      }
+      }}
       stage('Cucumber Reports') {
         steps {
           cucumber buildStatus: "UNSTABLE",
