@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        sh 'mvn clean'
+        sh 'mvn -D clean'
         echo 'Build step completed'
       }
     }
@@ -20,6 +20,17 @@ pipeline {
         sh 'mvn test'
         echo 'End Testing..'
       }
+      post {
+                      // If Maven was able to run the tests, even if some of the test
+                      // failed, record the test results and archive the jar file.
+                      success { allure([
+                          includeProperties: false,
+                          jdk: '',
+                          properties: [],
+                          reportBuildPolicy: 'ALWAYS',
+                          results: [[path: 'target/allure-results']]
+                      ])
+                  }
     }
     stage('Cucumber Reports') {
       steps {
