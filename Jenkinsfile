@@ -4,14 +4,14 @@ pipeline {
     pollSCM '*/5 * * * *'
   }
   tools {
-    maven "Maven 3.9.4"
+    maven "Maven"
   }
   stages {
     stage('Build') {
       steps {
         echo 'Building..'
-        sh 'mvn clean'// for mac
-        //bat 'mvn clean' // for windows
+        //sh 'mvn clean'// for mac
+        bat 'mvn clean' // for windows
         echo 'Build step completed'
       }
     }
