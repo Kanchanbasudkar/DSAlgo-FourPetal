@@ -5,25 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class WelcomePage {
-	private WebDriver webDriver;
+    private WebDriver webDriver;
 
-	By getstared = By.className("btn");
+    By getstared = By.className("btn");
 
-	By numpyNinjaBrand = By.className("navbar-brand");
+    By numpyNinjaBrand = By.className("navbar-brand");
 
-	public WelcomePage(WebDriver webDriver) {
-		super();
-		this.webDriver = webDriver;
-	}
+    public WelcomePage(WebDriver webDriver) {
+        super();
+        this.webDriver = webDriver;
+    }
 
-	public void clickGetstartedButton() {
+    public void clickGetstartedButton() {
+        webDriver.findElement(getstared).click();
+    }
 
-		webDriver.findElement(getstared).click();
-		///return new HomePage(webDriver);
-
-	}
-
-	public void checkForNumpyNinjaBrand(){
-		Assert.isNonEmpty(webDriver.findElement(numpyNinjaBrand));
-	}
+    public void checkForNumpyNinjaBrand() {
+        Assert.isNonEmpty(webDriver.findElement(numpyNinjaBrand));
+    }
 }

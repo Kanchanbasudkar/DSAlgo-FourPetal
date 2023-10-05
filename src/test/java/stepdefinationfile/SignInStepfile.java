@@ -3,7 +3,6 @@ package stepdefinationfile;
 import com.pages.SignInPage;
 import com.qa.factory.DriverFactory;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -66,9 +65,18 @@ public class SignInStepfile {
 
 	}
 
-	@Then("User navigates to home page")
+	@Then("User navigates to home page and see success message")
 	public void user_navigates_to_home_page() {
-		System.out.println("Welcome to homepage");
+
+		signIn.verifyValidUserLoginMessage();
+	}
+
+
+
+
+	@Then("User will see invalid user details message")
+	public void user_will_see_invalid_user_details_message() {
+		signIn.verifyInvalidUserErrorMessage();
 	}
 
 

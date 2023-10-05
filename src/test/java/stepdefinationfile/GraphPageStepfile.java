@@ -37,9 +37,7 @@ public class GraphPageStepfile {
 
 	@Then("Navigates to Graph Home page")
 	public void navigates_to_graph_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("Graph homepage");
-	   // throw new io.cucumber.java.PendingException();
+		graphPage.ClickGraphLink();
 	}
 
 	@When("I click the Graph Link")
@@ -51,8 +49,6 @@ public class GraphPageStepfile {
 
 	@Then("Navigates to Graph Page")
 	public void navigates_to_graph_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
 	}
 
 	@When("I click the Try Here>>> button")
@@ -132,5 +128,34 @@ public class GraphPageStepfile {
 	    // Write code here that turns the phrase above into concrete actions
 	  //  throw new io.cucumber.java.PendingException();
 	}
+
+	@Given("User enters sheetname {string} and rownumber <rowNumber> for GraphPage")
+	public void user_enters_sheetname_and_rownumber_row_number_for_tree_page(String sheetName, Integer rowNumber) throws IOException {
+		signIn.readDataFromSheet(sheetName, rowNumber);
+	}
+
+	@Given("I am on Home Page after signing in for GraphPage")
+	public void i_am_on_home_page_after_signing_in_for_graph_page() {
+	}
+	@Then("Enter username {string} and password {string} to sign in for GraphPage")
+	public void enter_username_and_password_to_sign_in_for_graph_page(String string, String string2) throws IOException {
+		System.out.println("inside enter username and password");
+		signIn.sendUsername();
+		signIn.sendPassword();
+		signIn.clickLoginBtn();
+	}
+
+	@Given("User is on home page for GraphPage")
+	public void user_is_on_home_page_for_graph_page() {
+		DriverFactory.getDriver().get("https://dsportalapp.herokuapp.com/home/");
+		signIn.clickSignIn();
+	}
+
+	@Given("User enters sheetname {string} and rownumber {int} for GraphPage")
+	public void user_enters_sheetname_and_rownumber_for_graph_page(String sheetName, Integer rowNumber) throws IOException {
+		signIn.readDataFromSheet(sheetName, rowNumber);
+	}
+
+
 
 }

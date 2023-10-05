@@ -1,20 +1,16 @@
 package com.pages;
 
-import com.qa.util.ConfigReader;
 import com.qa.util.ExcelReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 public class SignInPage {
     private WebDriver webDriver;
-
-    private ConfigReader configReader;
-    private Properties prop;
 
     By signIn = By.partialLinkText("Sign");
 
@@ -22,13 +18,14 @@ public class SignInPage {
     By password = By.xpath("//input[@name=\"password\"]");
     By loginBtn = By.xpath("//input[@value=\"Login\"]");
 
+    By userLoginMessage = By.xpath("//div[@role=\"alert\"]");
+
     String userNameExcelValue;
     String passwordExcelValue;
+
     public SignInPage(WebDriver webDriver) {
         super();
         this.webDriver = webDriver;
-        this.configReader = new ConfigReader();
-        this.prop = configReader.init_prop();
     }
 
     public void clickSignIn() {
@@ -41,7 +38,7 @@ public class SignInPage {
 
     public void readDataFromSheet(String sheetName, Integer rowNumber) throws IOException {
         ExcelReader reader = new ExcelReader();
-        List<Map<String, String>> testdata = reader.getData(prop.getProperty("dataFilePath"), sheetName);
+        List<Map<String, String>> testdata = reader.getData("src/test/resources/exceldata/signInTestData.xlsx", sheetName);
         userNameExcelValue = testdata.get(rowNumber).get("userName");
         passwordExcelValue = testdata.get(rowNumber).get("password");
     }
@@ -54,6 +51,18 @@ public class SignInPage {
         webDriver.findElement(loginBtn).click();
         return new HomePage(webDriver);
 
+    }
+
+    public void verifyInvalidUserErrorMessage() {
+        String text = "Invalid Username and Password";
+        String text1 = webDriver.findElement(userLoginMessage).getText();
+        Assert.assertEquals(text, text1);
+    }
+
+    public void verifyValidUserLoginMessage() {
+        String text = "You are logged in";
+        String text1 = webDriver.findElement(userLoginMessage).getText();
+        Assert.assertEquals(text, text1);
     }
 
 

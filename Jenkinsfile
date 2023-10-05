@@ -20,12 +20,25 @@ pipeline {
         sh 'mvn test'
         echo 'End Testing..'
       }
+      post {
+        success {
+          allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [
+              [path: 'target/allure-results']
+            ]
+          ])
+        }
+      }
     }
     stage('Cucumber Reports') {
       steps {
         cucumber buildStatus: "UNSTABLE",
-        fileIncludePattern: "**/cucumber.json",
-        jsonReportDirectory: 'target'
+          fileIncludePattern: "**/cucumber.json",
+          jsonReportDirectory: 'target'
       }
     }
     stage('Deploy') {

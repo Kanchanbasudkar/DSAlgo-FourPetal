@@ -5,21 +5,20 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
 
-	private WebDriver webDriver;
+    private WebDriver webDriver;
 
-	//Add all By Locators
-	By RegisterLink = By.linkText("Register");
+    //Add all By Locators
+    By RegisterLink = By.linkText("Register");
 
 
+    public HomePage(WebDriver webDriver) {
+        super();
+        this.webDriver = webDriver;
+    }
 
-	public HomePage(WebDriver webDriver) {
-		super();
-		this.webDriver = webDriver;
-	}
+    //Add all Page Actions
+    public void ClickRegisterButton() {
 
-	//Add all Page Actions
-	public void ClickRegisterButton() {
-
-		webDriver.findElement(RegisterLink).click();
-	}
+        webDriver.findElement(RegisterLink).click();
+    }
 }
