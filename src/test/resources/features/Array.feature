@@ -1,49 +1,49 @@
-##@tag
-#Feature: Array Home page Funtionality
-#  I want to use this template for my feature file
-#
-#Background:
-#    Given I am on Ds-algo Home Page
-#    When I click the GetStared button under Array subtitle
-#    Then Navigates to Array Home page
-#
-#  @tag1
-#  Scenario: Run the print statement in Arrays in Python
-#    When I click on Array in Python
-#    Then Navigates to Array in Python
-#    When I click the Try Here
-#    Then Navigates to Try Editor Page
-#    When I Enter "print 'welcome'" in text area
-#	 	And Click Run
-#    Then Displays "welcome" in output
-#
-#
-# @tag2
-#  Scenario: Run the print statement in Arrays Using List
-#    When I click on Arrays Using List
-#    Then Navigates to Arrays Using List
-#    When I click the Try Here
-#    Then Navigates to Try Editor Page
-#    When I Enter "print 'welcome'" in text area
-#	 	And Click Run
-#    Then Displays "welcome" in output
-#
-#   @tag3
-#  Scenario: Run the print statement in Basic Operations in Lists
-#    When I click on Basic Operations in Lists
-#		Then Navigates to Basic Operations in Lists
-#		When I click the Try Here
-#    Then Navigates to Try Editor Page
-#    When I Enter "print 'welcome'" in text area
-#	 	And Click Run
-#    Then Displays "welcome" in output
-#
-#    @tag4
-#  Scenario: Run the print statement in Applications of Array
-#    When I click on Applications of Array
-#    Then Navigates to Applications of Array
-#    When I click the Try Here
-#    Then Navigates to Try Editor Page
-#    When I Enter "print 'welcome'" in text area
-#	 	And Click Run
-#    Then Displays "welcome" in output
+
+Feature: Array Homepage
+
+Scenario Outline:Print statement in  Arrays in Python
+Given User on home page of Dsalo and clickon Getstarted
+And User enters sheetname "<sheetName>" and rownumber <rowNumber> for Arrays
+Then Enter username "<userName>" and password "<password>" to sign in for Arrays
+When User click the GetStared button under Array subtitle
+Then User Navigates to Array overview
+When User click on Array in Python
+Then Navigates to Array in Python
+When User click the Try HereButton
+Then User navigates to Try EditorPage
+When User Enter vaild statement in textbox
+And User press on RunButton
+Then Display vaild message
+    Examples:
+      | sheetName |rowNumber|
+      | signin    |0        |
+
+@Arrays
+   Scenario:Print statement in Arrays Using List
+     Given User click on Arrays Using List
+     Then Naviagates to Arrays Using List
+     When User click the Try HereButton                       
+     Then User navigates to Try EditorPage                    
+     When User Enter vaild statement in textbox               
+     And User click on RunButton                              
+     Then Display vaild message
+
+@Arrays
+  Scenario:Print statement in Basic Operations in Lists
+    Given User click on Basic Operations in Lists
+    Then Naviagates to Basic Operations in Lists
+    When User click the Try HereButton
+    Then User navigates to Try EditorPage
+    When User Enter vaild statement in textbox
+    And User click on RunButton
+    Then Display vaild message
+
+@Arrays
+Scenario:Print statement in Applications of Array
+  Given User click on Applications of Array
+  Then Naviagates to Applications of Array
+  When User click the Try HereButton
+  Then User navigates to Try EditorPage
+  When User Enter vaild statement in textbox
+  And User click on RunButton
+  Then Display vaild message 

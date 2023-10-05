@@ -10,22 +10,37 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        sh 'mvn clean'
+        sh 'mvn clean'// for mac
+        //bat 'mvn clean' // for windows
         echo 'Build step completed'
       }
     }
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'mvn test'
+        sh 'mvn test'// for mac
+        //bat 'mvn test' // for windows
         echo 'End Testing..'
+      }
+      post {
+        success {
+          allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [
+              [path: 'target/allure-results']
+            ]
+          ])
+        }
       }
     }
     stage('Cucumber Reports') {
       steps {
         cucumber buildStatus: "UNSTABLE",
-        fileIncludePattern: "**/cucumber.json",
-        jsonReportDirectory: 'target'
+          fileIncludePattern: "**/cucumber.json",
+          jsonReportDirectory: 'target'
       }
     }
     stage('Deploy') {

@@ -21,9 +21,8 @@ public class GraphPage {
     }
 
     public void clickGraphGetstarted() {
-        System.out.println(" before i clicked graph page link");
+
         webDriver.findElement(graphGetStared).click();
-        System.out.println(" i clicked graph page link");
     }
 
     public void ClickGraphRepLink() {
@@ -35,11 +34,14 @@ public class GraphPage {
     }
 
     public void PrintGraphRep() {
+
         webDriver.findElement(write).sendKeys("print 'welcome'");
     }
 
     public void ClickRunGraphRep() {
+
         webDriver.findElement(run).click();
+
     }
 
     public void ClickGraphLink() {
@@ -47,15 +49,18 @@ public class GraphPage {
     }
 
     public void ClickGraphTry() {
+
         webDriver.findElement(tryHereButton).click();
     }
 
     public void PrintGraph() {
+
         webDriver.findElement(write).sendKeys("print 'welcome'");
     }
 
     public void ClickRunGraph() {
         webDriver.findElement(run).click();
+
     }
 
 

@@ -2,6 +2,7 @@ package com.qa.factory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -25,7 +26,7 @@ public class DriverFactory {
             tlDriver.set(new SafariDriver());
         } else if (Browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
-            tlDriver.set(new SafariDriver());
+            tlDriver.set(new EdgeDriver());
         }else {
             System.out.println("Please pass the correct browser value :" + Browser);
         }

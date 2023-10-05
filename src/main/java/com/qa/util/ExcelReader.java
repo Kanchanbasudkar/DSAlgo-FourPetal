@@ -31,7 +31,10 @@ public class ExcelReader {
             for (int currentColumn = 0; currentColumn < totalColumn; currentColumn++) {
                 cell = row.getCell(currentColumn);
                 String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(currentColumn).getStringCellValue();
-                columnMapData.put(columnHeaderName, cell.getStringCellValue());
+                if (null != cell)
+                    columnMapData.put(columnHeaderName, cell.getStringCellValue());
+                else
+                    columnMapData.put(columnHeaderName, "");
             }
             excelRows.add(columnMapData);
         }
