@@ -1,7 +1,6 @@
 package com.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class DatastructuresIntroPage {
@@ -20,7 +19,7 @@ public class DatastructuresIntroPage {
         this.webDriver = webDriver;
     }
 
-    public void ClickData_structureGetstarted() {
+    public void clickDataStructureGetStarted() {
 
         webDriver.findElement(getstarted).click();
 

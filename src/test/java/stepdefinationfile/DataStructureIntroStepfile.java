@@ -34,7 +34,7 @@ public class DataStructureIntroStepfile {
 	}
 	@When("User click the GetStared button under Data subtitle")
 	public void user_click_the_get_stared_button_under_data_subtitle() {
-		dataIntro.ClickData_structureGetstarted();
+		dataIntro.clickDataStructureGetStarted();
 	}
 	@Then("User Navigates to Data Structures-Introduction")
 	public void user_navigates_to_data_structures_introduction() {
