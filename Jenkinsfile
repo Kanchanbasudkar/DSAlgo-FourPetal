@@ -17,7 +17,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'mvn test'
+        bat 'mvn test'
         echo 'End Testing..'
       }
       post {
