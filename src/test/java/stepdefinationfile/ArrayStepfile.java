@@ -39,7 +39,7 @@ public class ArrayStepfile {
 
 	@When("User click the GetStared button under Array subtitle")
 	public void user_click_the_get_stared_button_under_array_subtitle() {
-		arraypage.Getstarted();
+		arraypage.getStarted();
 	}
 
 	@Then("User Navigates to Array overview")

@@ -22,6 +22,7 @@ public class SignInPage {
 
     String userNameExcelValue;
     String passwordExcelValue;
+
     public SignInPage(WebDriver webDriver) {
         super();
         this.webDriver = webDriver;
@@ -52,13 +53,13 @@ public class SignInPage {
 
     }
 
-    public void verifyInvalidUserErrorMessage(){
+    public void verifyInvalidUserErrorMessage() {
         String text = "Invalid Username and Password";
         String text1 = webDriver.findElement(userLoginMessage).getText();
         Assert.assertEquals(text, text1);
     }
 
-    public void verifyValidUserLoginMessage(){
+    public void verifyValidUserLoginMessage() {
         String text = "You are logged in";
         String text1 = webDriver.findElement(userLoginMessage).getText();
         Assert.assertEquals(text, text1);
