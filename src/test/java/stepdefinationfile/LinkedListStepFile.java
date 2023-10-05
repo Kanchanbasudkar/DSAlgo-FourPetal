@@ -125,8 +125,7 @@ import java.io.IOException;
 
 	@And("The user enters valid python code in tryEditor")
 	public void the_user_enters_valid_python_code_in_try_editor() throws InterruptedException {
-			Thread.sleep(5000);
-		linkedListpage.codeMirrorText();
+			linkedListpage.codeMirrorText();
 	}
 
 	@When("The user clicks Implement Linked list link")

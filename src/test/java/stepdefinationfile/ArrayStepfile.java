@@ -70,7 +70,6 @@ public class ArrayStepfile {
 
 	@When("User Enter vaild statement in textbox")
 	public void user_enter_vaild_statment_in_textbox() throws InterruptedException {
-		Thread.sleep(4000);
 		arraypage.Txtarea();
 
 	}

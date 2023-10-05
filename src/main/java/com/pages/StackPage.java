@@ -54,7 +54,6 @@ public class StackPage {
 	 }
 	 
 	 public void checkOutput() throws InterruptedException {
-		 Thread.sleep(5000);
 		 driver.findElement(OutputElem);
 	 }
 

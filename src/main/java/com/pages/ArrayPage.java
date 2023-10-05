@@ -34,7 +34,6 @@ public class ArrayPage {
 	}
 	
 	public void ClickonArrayusingList() throws InterruptedException {
-		Thread.sleep(5000);
 		webDriver.findElement(arraysusingList).click();
 	}
 
@@ -50,7 +49,6 @@ public class ArrayPage {
 		webDriver.findElement(typehere).click();	
 	}
 	public void Txtarea() throws InterruptedException {
-		Thread.sleep(5000);
 		webDriver.findElement(writeintexbox).sendKeys("print 'welcome'");
 		System.out.println("enter here");
 
