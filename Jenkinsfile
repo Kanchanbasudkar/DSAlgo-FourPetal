@@ -7,10 +7,18 @@ pipeline {
     maven "Maven 3.9.4"
   }
   stages {
+  stage('Check versions') {
+        steps {
+          echo 'Check versions maven..'
+          bat 'mvn -version'
+          echo 'Check versions java..'
+          bat 'java -version'
+          echo 'End Check versions..'
+        }
+      }
     stage('Build') {
       steps {
         echo 'Building..'
-
         bat 'mvn clean'
         echo 'Build step completed'
       }
@@ -19,9 +27,6 @@ pipeline {
       steps {
         echo 'Testing..'
         bat 'mvn test'
-        bat 'mvn -version'
-        bat 'java -version'
-        echo 'End Testing..'
       }
       post {
         success {
