@@ -19,6 +19,8 @@ pipeline {
       steps {
         echo 'Testing..'
         bat 'mvn test'
+        bat 'mvn -version'
+        bat 'java -version'
         echo 'End Testing..'
       }
       post {
