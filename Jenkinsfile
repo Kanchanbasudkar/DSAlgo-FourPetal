@@ -10,15 +10,14 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        sh 'mvn clean'
+        bat 'mvn clean'
         echo 'Build step completed'
       }
     }
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'mvn test'
-        echo 'End Testing..'
+        bat 'mvn test'
       }
       post {
         success {
@@ -39,11 +38,6 @@ pipeline {
         cucumber buildStatus: "UNSTABLE",
           fileIncludePattern: "**/cucumber.json",
           jsonReportDirectory: 'target'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        echo 'Deploying....'
       }
     }
   }
